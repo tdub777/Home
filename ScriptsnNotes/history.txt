@@ -1,0 +1,51 @@
+    1  z
+    2  docker version
+    3  ll
+    4  ls -lhrt
+    5  rm awscliv2.zip 
+    6  df -h
+    7  ll
+    8  cd git/
+    9  ll
+   10  cd Home/
+   11  #mkdir -p ~/devops-lab/{ansible,terraform,helm,argo,cluster-setup}
+   12  mkdir -p ./{ansible,terraform,helm,argo,cluster-setup}
+   13  ll
+   14  git init
+   15  git status
+   16  git add ./*
+   17  git commit -m "Added directories"
+   18  git push
+   19  cd ..
+   20  git init
+   21  git add ./*
+   22  ls -lhrt
+   23  ls -lhrta
+   24  git commit -m "Added directories"
+   25  git push
+   26  git remote add origin https://github.com/tdub777/Home.git
+   27  git push -u origin main
+   28  ll
+   29  cd Home/
+   30  git push -u origin main
+   31  git add ./*
+   32  git commit -m "Added directories"
+   33  git push
+   34  git push -u origin main
+   35  cd
+   36  touch ~/git/Home/ansible/.gitkeep
+   37  touch ~/git/Home/terraform/.gitkeep
+   38  touch ~/git/Home/helm/.gitkeep
+   39  touch ~/git/Home/argo/.gitkeep
+   40  touch ~/git/Home/cluster-setup/.gitkeep
+   41  cd git/
+   42  ls -alhrt *
+   43  ls -alhrt */*
+   44  cd Home/
+   45  git add ./*
+   46  git commit -m "Added directories"
+   47  git push -u origin main
+   48  mkdir ScriptsnNotes
+   49  cd ScriptsnNotes
+   50  history |less
+   51  history > history.txt
