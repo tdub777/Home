@@ -1,0 +1,55 @@
+Update and Install Base Packages
+sudo apt update && sudo apt upgrade -y
+sudo apt install -y curl wget git unzip software-properties-common gnupg ca-certificates apt-transport-https
+
+ Set Up Git & Connect to GitHub
+git config --global user.name "Tim Watts"
+git config --global user.email "your-email@example.com"
+Generate SSH key:
+ssh-keygen -t ed25519 -C "your-email@example.com"
+cat ~/.ssh/id_ed25519.pub
+GitHub > Settings > SSH and GPG Keys > New SSH Key
+git clone git@github.com:tdub777/your-repo-name.git
+cd your-repo-name
+
+
+sudo apt install -y ansible
+ansible --version
+
+curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+sudo apt update && sudo apt install -y terraform
+terraform -v
+
+
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+aws --version
+aws configure
+
+
+curl -LO "https://dl.k8s.io/release/$(curl -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+chmod +x kubectl
+sudo mv kubectl /usr/local/bin/
+kubectl version --client
+
+curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+helm version
+
+
+VERSION=$(curl --silent "https://api.github.com/repos/argoproj/argo-cd/releases/latest" | grep '"tag_name":' | sed -E 's/.*"v([^"]+)".*/\1/')
+curl -sSL -o argocd "https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64"
+chmod +x argocd
+sudo mv argocd /usr/local/bin/
+argocd version --client
+
+
+sudo apt install -y docker.io
+sudo usermod -aG docker $USER
+newgrp docker
+docker version
+
+rm -rf awscliv2.zip aws
+
+
